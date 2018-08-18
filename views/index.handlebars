@@ -1,0 +1,43 @@
+<div class="container">
+    <div class="row">
+        
+        <img src="/assets/img/burger_icon.png">
+    </div>
+    <div class="row">
+        <h1>Eat-Da-Buger</h1>
+    </div>
+    <form class="create-form">
+        <input type="text" id="ca"></input>
+        <button type="submit">submit</button>
+        <h4 class="small_text">Enter a burger you want to eat Click the "submit" button </h4>
+    </form>
+    <div class="row">
+        <div class="col-md-6">
+
+            {{#each burgers}} {{#unless devoured}}
+            <form>
+                <div class="input-group">
+                    <li class="form-control">{{id}}. {{burger_name}}</li>
+                    <span class="input-group-btn">
+                        <button data-id={{id}} data-devoured = 1 class="btn btn-success devour-button">Devour It!</button>
+
+                    </span>
+                </div>
+            </form>
+            {{/unless}} {{/each}}
+        </div>
+        <div class="col-md-6">
+
+            {{#each burgers}} {{#if this.devoured}}
+            <div class="input-group">
+                <li class="form-control">{{this.id}}. {{this.burger_name}}</li>
+                <span class="input-group-btn">
+                        <button data-id={{id}} data-devoured = 0 class="btn btn-success devour-button">Re-Cook!</button>
+                    </span>
+            </div>
+            {{/if}} {{/each}}
+
+
+        </div>
+    </div>
+</div>
